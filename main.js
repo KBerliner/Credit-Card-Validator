@@ -59,3 +59,42 @@ const findInvalidCards = arr => {
     }
     return invalidArray;
 };
+
+let invalidArray = findInvalidCards(batch);
+
+// Find Invalid Companies Function
+
+let invalidCompanies = [];
+
+const idInvalidCardCompanies = arr => {
+
+    for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+        switch (arr[i][0]) {
+            case 3:
+                if (!invalidCompanies.includes('Amex (American Express)')) {
+                    invalidCompanies.push('Amex (American Express)');
+                }
+                break;
+            case 4:
+                if (!invalidCompanies.includes('Visa')) {
+                    invalidCompanies.push('Visa');
+                }
+                break;
+            case 5:
+                if (!invalidCompanies.includes('Mastercard')) {
+                    invalidCompanies.push('Mastercard');
+                }
+                break;
+            case 6:
+                if (!invalidCompanies.includes('Discover')) {
+                    invalidCompanies.push('Discover');
+                }
+                break;
+            default:
+                console.log('Company not found');
+                break;
+        }
+    }
+    return invalidCompanies;
+};
