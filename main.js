@@ -28,8 +28,7 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 // Validate Credit Number Function
 
 const validateCred = arr => {
-    console.log(arr);
-    let newArray = arr.reverse();
+    let newArray = arr.slice().reverse();
     let sum = 0;
     for (let i = 0; i < newArray.length; i++) {
         if (i % 2 === 0 || i === 0) {
@@ -49,5 +48,14 @@ const validateCred = arr => {
     }
 }
 
+// Find Invalid Cards Function
 
-
+const findInvalidCards = arr => {
+    let invalidArray = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (validateCred(arr[i]) === false) {
+            invalidArray.push(arr[i]);
+        }
+    }
+    return invalidArray;
+};
